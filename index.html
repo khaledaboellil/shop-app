@@ -1,195 +1,200 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Can We Be Friends Again?</title>  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: linear-gradient(135deg, #ffd6e7, #ffe9f3);
-      overflow: hidden;
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Can We Be Friends Again?</title>
+
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #ffd6e7, #ffe9f3);
+  }
+
+  .card {
+    text-align: center;
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 90%;
+  }
+
+  /* Images Fit */
+  .card-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+  }
+
+  .top {
+    margin-bottom: 15px;
+  }
+
+  .bottom {
+    margin-top: 20px;
+  }
+
+  h1 {
+    color: #ff4d88;
+    margin-bottom: 10px;
+  }
+
+  p {
+    color: #555;
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .buttons {
+    position: relative;
+    height: 80px;
+  }
+
+  button {
+    padding: 12px 24px;
+    font-size: 16px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: 0.3s;
+    position: absolute;
+  }
+
+  #yesBtn {
+    background: #ff4d88;
+    color: white;
+    left: 40px;
+  }
+
+  #noBtn {
+    background: #ddd;
+    color: #333;
+    right: 40px;
+  }
+
+  .hearts {
+    position: fixed;
+    font-size: 24px;
+    animation: floatUp 3s linear forwards;
+  }
+
+  @keyframes floatUp {
+    from {
+      transform: translateY(0);
+      opacity: 1;
     }
-
-    .card {
-      text-align: center;
-      background: white;
-      padding: 40px;
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      max-width: 400px;
+    to {
+      transform: translateY(-200px);
+      opacity: 0;
     }
+  }
+</style>
+</head>
 
-    h1 {
-      color: #ff4d88;
-      margin-bottom: 10px;
-    }
+<body>
 
-    p {
-      color: #555;
-      margin-bottom: 30px;
-      line-height: 1.5;
-    }
+<div class="card">
 
-    .buttons {
-      position: relative;
-      height: 80px;
-    }
+  <!-- Top Image -->
+  <img
+    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvP5LRFIwy8NDGoMkQvFQznNppO1LaRt5kEjcwaC2fqK2-2lxGPZVuBdE&s=10"
+    class="card-img top"
+  />
 
-    button {
-      padding: 12px 24px;
-      font-size: 16px;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-      position: absolute;
-    }
+  <h1>Can We Be Friends Again? 💛</h1>
 
-    #yesBtn {
-      background: #ff4d88;
-      color: white;
-      left: 60px;
-    }
+  <p>
+    Our friendship means a lot to me.<br>
+    Can we start over?
+  </p>
 
-    #yesBtn:hover {
-      background: #e6005c;
-    }
+  <div class="buttons">
+    <button id="yesBtn">Yes 🫶</button>
+    <button id="noBtn">No 🙈</button>
+  </div>
 
-    #noBtn {
-      background: #ddd;
-      color: #333;
-      right: 60px;
-    }
+  <!-- Bottom Image -->
+  <img
+    src="https://i1.sndcdn.com/artworks-uzj8QIRbR5kbbzsn-y0KoKQ-t500x500.jpg"
+    class="card-img bottom"
+  />
 
-    .hearts {
-      position: fixed;
-      font-size: 24px;
-      animation: floatUp 3s linear forwards;
-    }
+</div>
 
-    @keyframes floatUp {
-      from {
-        transform: translateY(0);
-        opacity: 1;
-      }
-      to {
-        transform: translateY(-200px);
-        opacity: 0;
-      }
-    }
-  </style></head><body>
-  <div class="card">
-    <!-- Top Image -->
-    <img 
-  id="topImage"
-  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvP5LRFIwy8NDGoMkQvFQznNppO1LaRt5kEjcwaC2fqK2-2lxGPZVuBdE&s=10"
-  alt="Top Image"
-  style="
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:15px;
-    margin-bottom:15px;
-  "
->
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
 
-    <h1>Can We Be Friends Again? 💛</h1>
-    <p>
-      Our friendship means a lot to me.
-      Can we start over?
-    </p><div class="buttons">
-  <button id="yesBtn">Yes 🫶</button>
-  <button id="noBtn">No 🙈</button>
-    <!-- Bottom Image -->
-<img 
-  id="bottomImage"
-  src="https://i1.sndcdn.com/artworks-uzj8QIRbR5kbbzsn-y0KoKQ-t500x500.jpg"
-  alt="Bottom Image"
-  style="
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    border-radius:15px;
-    margin-top:20px;
-  "
->
+let scale = 1;
+let noClickCount = 0;
 
-  </div>  <script>
-    const noBtn = document.getElementById("noBtn");
-    const yesBtn = document.getElementById("yesBtn");
+const noTexts = [
+  "Are you sure? 🥺",
+  "Really really sure?",
+  "What if I asked really nicely? 🙏",
+  "Last chance…?",
+  "No :("
+];
 
-    let scale = 1;
-    let noClickCount = 0;
+function moveNoButton() {
+  const btnWidth = noBtn.offsetWidth;
+  const btnHeight = noBtn.offsetHeight;
 
-    // English phrases sequence
-    const noTexts = [
-      "Are you sure? ",
-      "Really really sure?",
-      "What if I asked really nicely? 🙏",
-      "Last chance…?",
-      "No :("
-    ];
+  const maxX = window.innerWidth - btnWidth - 20;
+  const maxY = window.innerHeight - btnHeight - 20;
 
-    function moveNoButton() {
-      const btnWidth = noBtn.offsetWidth;
-      const btnHeight = noBtn.offsetHeight;
+  const x = Math.random() * maxX;
+  const y = Math.random() * maxY;
 
-      const maxX = window.innerWidth - btnWidth - 20;
-      const maxY = window.innerHeight - btnHeight - 20;
+  noBtn.style.position = "fixed";
+  noBtn.style.left = x + "px";
+  noBtn.style.top = y + "px";
 
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
+  scale += 0.15;
+  yesBtn.style.transform = `scale(${scale})`;
+}
 
-      noBtn.style.position = "fixed";
-      noBtn.style.left = x + "px";
-      noBtn.style.top = y + "px";
+function handleNoInteraction(e) {
+  e.preventDefault();
 
-      // Make YES bigger every time 😈
-      scale += 0.15;
-      yesBtn.style.transform = `scale(${scale})`;
-    }
+  if (noClickCount < noTexts.length) {
+    noBtn.innerText = noTexts[noClickCount];
+    noClickCount++;
+  } else {
+    moveNoButton();
+  }
+}
 
-    function handleNoInteraction(e) {
-      e.preventDefault();
+noBtn.addEventListener("mouseover", handleNoInteraction);
+noBtn.addEventListener("touchstart", handleNoInteraction);
+noBtn.addEventListener("click", handleNoInteraction);
 
-      if (noClickCount < noTexts.length) {
-        noBtn.innerText = noTexts[noClickCount];
-        noClickCount++;
-      } else {
-        moveNoButton();
-      }
-    }
+yesBtn.addEventListener("click", () => {
+  alert("Thank you for giving our friendship another chance 💛");
+  createHearts();
+});
 
-    // Desktop hover
-    noBtn.addEventListener("mouseover", handleNoInteraction);
+function createHearts() {
+  for (let i = 0; i < 25; i++) {
+    const heart = document.createElement("div");
+    heart.className = "hearts";
+    heart.innerHTML = "💛";
+    heart.style.left = Math.random() * window.innerWidth + "px";
+    heart.style.bottom = "0px";
+    document.body.appendChild(heart);
 
-    // Mobile touch
-    noBtn.addEventListener("touchstart", handleNoInteraction);
+    setTimeout(() => heart.remove(), 3000);
+  }
+}
+</script>
 
-    // Click
-    noBtn.addEventListener("click", handleNoInteraction);
-
-    // YES button effect 💛
-    yesBtn.addEventListener("click", () => {
-      alert("Thank you for giving our friendship another chance 💛");
-      createHearts();
-    });
-
-    function createHearts() {
-      for (let i = 0; i < 25; i++) {
-        const heart = document.createElement("div");
-        heart.className = "hearts";
-        heart.innerHTML = "💛";
-        heart.style.left = Math.random() * window.innerWidth + "px";
-        heart.style.bottom = "0px";
-        document.body.appendChild(heart);
-
-        setTimeout(() => heart.remove(), 3000);
-      }
-    }
-  </script></body>
+</body>
 </html>
