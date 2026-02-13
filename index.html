@@ -84,7 +84,7 @@
     }
   </style></head><body>
   <div class="card">
-    <h1>Can We Be Friends Again? 💛</h1>
+    <h1>Can We Not break up our friendship? 💛</h1>
     <p>
       Our friendship means a lot to me.
       Can we start over?
@@ -97,7 +97,8 @@
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
 
-    // Move NO button (Desktop + Mobile)
+    let scale = 1;
+
     function moveNoButton() {
       const btnWidth = noBtn.offsetWidth;
       const btnHeight = noBtn.offsetHeight;
@@ -111,9 +112,34 @@
       noBtn.style.position = "fixed";
       noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
+
+      // Make YES button bigger every escape 😈
+      scale += 0.15;
+      yesBtn.style.transform = `scale(${scale})`;
+
+      // Funny message
+      showMessage();
     }
 
-    // Desktop hover
+    function showMessage() {
+      const msg = document.createElement("div");
+      msg.innerHTML = "متدوسش No 😭";
+      msg.style.position = "fixed";
+      msg.style.left = "50%";
+      msg.style.top = "20%";
+      msg.style.transform = "translate(-50%, -50%)";
+      msg.style.background = "white";
+      msg.style.padding = "10px 20px";
+      msg.style.borderRadius = "20px";
+      msg.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+      msg.style.fontSize = "18px";
+      msg.style.zIndex = "999";
+
+      document.body.appendChild(msg);
+      setTimeout(() => msg.remove(), 1200);
+    }
+
+    // Desktop
     noBtn.addEventListener("mouseover", moveNoButton);
 
     // Mobile touch
@@ -122,17 +148,20 @@
       moveNoButton();
     });
 
-    // Extra: if clicked
-    noBtn.addEventListener("click", moveNoButton);
+    // Click محاولة
+    noBtn.addEventListener("click", (e) => {
+      e.preventDefault();
+      moveNoButton();
+    });
 
-    // YES button click effect
+    // YES button click effect 💛
     yesBtn.addEventListener("click", () => {
-      alert("Thank you for giving our friendship another chance 💛");
+      alert("شكراً إنك وافقتي نرجع أصحاب تاني 💛");
       createHearts();
     });
 
     function createHearts() {
-      for (let i = 0; i < 20; i++) {
+      for (let i = 0; i < 25; i++) {
         const heart = document.createElement("div");
         heart.className = "hearts";
         heart.innerHTML = "💛";
