@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Can We Be Friends Again?</title>
-
-  <style>
+  <title>Can We Be Friends Again?</title>  <style>
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -84,29 +81,33 @@
         opacity: 0;
       }
     }
-  </style>
-</head>
-
-<body>
+  </style></head><body>
   <div class="card">
     <h1>Can We Be Friends Again? 💛</h1>
     <p>
-      I know I made mistakes and I’m really sorry.
       Our friendship means a lot to me.
       Can we start over?
-    </p>
+    </p><div class="buttons">
+  <button id="yesBtn">Yes 🫶</button>
+  <button id="noBtn">No 🙈</button>
+</div>
 
-    <div class="buttons">
-      <button id="yesBtn">Yes 🫶</button>
-      <button id="noBtn">No 🙈</button>
-    </div>
-  </div>
-
-  <script>
+  </div>  <script>
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
 
     let scale = 1;
+    let noClickCount = 0;
+
+    // English phrases sequence
+    const noTexts = [
+      "Are you sure? 🥺",
+      "Really really sure?",
+      "What if I asked really nicely? 🙏",
+      "Our friendship means a lot to me 💛",
+      "Last chance…?",
+      "No :("
+    ];
 
     function moveNoButton() {
       const btnWidth = noBtn.offsetWidth;
@@ -122,50 +123,34 @@
       noBtn.style.left = x + "px";
       noBtn.style.top = y + "px";
 
-      // Make YES button bigger every escape 😈
+      // Make YES bigger every time 😈
       scale += 0.15;
       yesBtn.style.transform = `scale(${scale})`;
-
-      // Funny message
-      showMessage();
     }
 
-    function showMessage() {
-      const msg = document.createElement("div");
-      msg.innerHTML = "متدوسش No 😭";
-      msg.style.position = "fixed";
-      msg.style.left = "50%";
-      msg.style.top = "20%";
-      msg.style.transform = "translate(-50%, -50%)";
-      msg.style.background = "white";
-      msg.style.padding = "10px 20px";
-      msg.style.borderRadius = "20px";
-      msg.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
-      msg.style.fontSize = "18px";
-      msg.style.zIndex = "999";
+    function handleNoInteraction(e) {
+      e.preventDefault();
 
-      document.body.appendChild(msg);
-      setTimeout(() => msg.remove(), 1200);
+      if (noClickCount < noTexts.length) {
+        noBtn.innerText = noTexts[noClickCount];
+        noClickCount++;
+      } else {
+        moveNoButton();
+      }
     }
 
-    // Desktop
-    noBtn.addEventListener("mouseover", moveNoButton);
+    // Desktop hover
+    noBtn.addEventListener("mouseover", handleNoInteraction);
 
     // Mobile touch
-    noBtn.addEventListener("touchstart", (e) => {
-      e.preventDefault();
-      moveNoButton();
-    });
+    noBtn.addEventListener("touchstart", handleNoInteraction);
 
-    // Click محاولة
-    noBtn.addEventListener("click", (e) => {
-      e.preventDefault();
-      moveNoButton();
-    });
+    // Click
+    noBtn.addEventListener("click", handleNoInteraction);
 
-    // YES button click effect 💛
+    // YES button effect 💛
     yesBtn.addEventListener("click", () => {
-      alert("شكراً إنك وافقتي نرجع أصحاب تاني 💛");
+      alert("Thank you for giving our friendship another chance 💛");
       createHearts();
     });
 
@@ -181,6 +166,5 @@
         setTimeout(() => heart.remove(), 3000);
       }
     }
-  </script>
-</body>
+  </script></body>
 </html>
