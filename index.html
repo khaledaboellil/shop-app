@@ -26,7 +26,6 @@
     width: 90%;
   }
 
-  /* Images Fit */
   .card-img {
     width: 100%;
     height: 200px;
@@ -129,9 +128,16 @@
 
 </div>
 
+<!-- 🎵 Background Music -->
+<audio id="bgMusic" loop>
+  <!-- REPLACE THIS LINK WITH YOUR SONG -->
+  <source src="https://soundcloud.com/muzikleridizicukurofficial/ukur-dizi-m-zikleri-ac-baba-o?si=e37fd108f6d34905a1655467998f8c41&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+</audio>
+
 <script>
 const noBtn = document.getElementById("noBtn");
 const yesBtn = document.getElementById("yesBtn");
+const music = document.getElementById("bgMusic");
 
 let scale = 1;
 let noClickCount = 0;
@@ -178,6 +184,11 @@ noBtn.addEventListener("touchstart", handleNoInteraction);
 noBtn.addEventListener("click", handleNoInteraction);
 
 yesBtn.addEventListener("click", () => {
+
+  /* 🎵 PLAY MUSIC (works on iOS Safari) */
+  music.volume = 0.4;
+  music.play();
+
   alert("Thank you for giving our friendship another chance 💛");
   createHearts();
 });
