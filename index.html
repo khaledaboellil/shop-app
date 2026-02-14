@@ -33,13 +33,8 @@
     border-radius: 15px;
   }
 
-  .top {
-    margin-bottom: 15px;
-  }
-
-  .bottom {
-    margin-top: 20px;
-  }
+  .top { margin-bottom: 15px; }
+  .bottom { margin-top: 20px; }
 
   h1 {
     color: #ff4d88;
@@ -102,7 +97,6 @@
 
 <div class="card">
 
-  <!-- Top Image -->
   <img
     src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSvP5LRFIwy8NDGoMkQvFQznNppO1LaRt5kEjcwaC2fqK2-2lxGPZVuBdE&s=10"
     class="card-img top"
@@ -120,7 +114,6 @@
     <button id="noBtn">No 🙈</button>
   </div>
 
-  <!-- Bottom Image -->
   <img
     src="https://i1.sndcdn.com/artworks-uzj8QIRbR5kbbzsn-y0KoKQ-t500x500.jpg"
     class="card-img bottom"
@@ -128,10 +121,10 @@
 
 </div>
 
-<!-- 🎵 Background Music -->
+<!-- 🎵 BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
-  <!-- REPLACE THIS LINK WITH YOUR SONG -->
-  <source src="https://soundcloud.com/muzikleridizicukurofficial/ukur-dizi-m-zikleri-ac-baba-o?si=e37fd108f6d34905a1655467998f8c41&utm_source=clipboard&utm_medium=text&utm_campaign=social_sharing" type="audio/mpeg">
+  <!-- Replace with your own song if you want -->
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
@@ -185,7 +178,7 @@ noBtn.addEventListener("click", handleNoInteraction);
 
 yesBtn.addEventListener("click", () => {
 
-  /* 🎵 PLAY MUSIC (works on iOS Safari) */
+  /* 🎵 PLAY MUSIC — works on iOS */
   music.volume = 0.4;
   music.play();
 
