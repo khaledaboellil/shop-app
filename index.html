@@ -123,7 +123,6 @@
 
 <!-- 🎵 BACKGROUND MUSIC -->
 <audio id="bgMusic" loop>
-  <!-- Replace with your own song if you want -->
   <source src="ini.mp3" type="audio/mpeg">
 </audio>
 
@@ -134,6 +133,7 @@ const music = document.getElementById("bgMusic");
 
 let scale = 1;
 let noClickCount = 0;
+let musicStarted = false; // ✅ flag
 
 const noTexts = [
   "Are you sure? 🥺",
@@ -142,6 +142,14 @@ const noTexts = [
   "Last chance…?",
   "No :("
 ];
+
+function playMusicOnce() {
+  if (!musicStarted) {
+    music.volume = 0.4;
+    music.play();
+    musicStarted = true;
+  }
+}
 
 function moveNoButton() {
   const btnWidth = noBtn.offsetWidth;
@@ -164,6 +172,9 @@ function moveNoButton() {
 function handleNoInteraction(e) {
   e.preventDefault();
 
+  // 🎵 Play music first time only
+  playMusicOnce();
+
   if (noClickCount < noTexts.length) {
     noBtn.innerText = noTexts[noClickCount];
     noClickCount++;
@@ -178,9 +189,8 @@ noBtn.addEventListener("click", handleNoInteraction);
 
 yesBtn.addEventListener("click", () => {
 
-  /* 🎵 PLAY MUSIC — works on iOS */
-  music.volume = 0.4;
-  music.play();
+  // 🎵 Always play if not started
+  playMusicOnce();
 
   alert("Thank you for giving our friendship another chance 💛");
   createHearts();
